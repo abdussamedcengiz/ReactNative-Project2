@@ -29,7 +29,11 @@ yarn-error.*
 *.pem
 
 # local env files
+# Expo'nun varsayilan sablonu yalnizca ".env*.local" yaziyordu; duz
+# ".env" dosyasi kapsam disindaydi ve yanlislikla commit'lenebilirdi.
+.env
 .env*.local
+!.env.example
 
 # typescript
 *.tsbuildinfo
