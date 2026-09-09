@@ -32,12 +32,23 @@ npx expo start
 ```
 
 Uygulamanin calismasi icin gecerli bir **Yelp API anahtari** gerekiyor
-(https://docs.developer.yelp.com adresinden alinabilir).
+(https://docs.developer.yelp.com adresinden alinabilir). Anahtar koda
+degil ortam degiskenine konuyor:
+
+```bash
+cp .env.example .env
+# .env icindeki EXPO_PUBLIC_YELP_API_KEY satirina anahtarinizi yazin
+```
 
 ## Bilinen sorunlar
 
-- **API anahtari `api/yelp.js` icine duz metin yazilmis.** Anahtar depoda
-  goruldugu icin gecersiz kilinmali ve yenisi koda degil ortam degiskenine
-  konmali.
+- **Anahtar git gecmisinde duruyor.** Koda gomulu Yelp anahtari
+  `EXPO_PUBLIC_YELP_API_KEY` ortam degiskenine tasindi ve **eski anahtar
+  Yelp panelinden gecersiz kilindi**. Yine de ilk commit'te (2024-02-17)
+  okunabilir durumda; gecmis bilerek yeniden yazilmadi.
+- **`EXPO_PUBLIC_` degiskenleri gercek anlamda gizli degildir**: deger
+  derleme sirasinda istemci paketine gomulur. Mobil uygulamalarda hicbir
+  yontem anahtari kullanicidan gizleyemez; gizlilik gerekiyorsa istekler
+  anahtari kendi tarafinda tutan bir sunucu uzerinden gecirilmeli.
 - Arama konumu `"İstanbul"` olarak koda sabitlenmis, disaridan degistirilemiyor.
 - `SearachScreen` ve `SearcBar` dosya adlarinda yazim hatasi var.
